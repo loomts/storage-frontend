@@ -44,7 +44,7 @@ export default {
         {
           type: "form",
           title: "键值查询",
-          api: "get:/api/query",
+          api: "get:http://10.68.104.103:8090/api/readKeyValue?key=key6",
           submitText: "查询",
           controls: [
             {

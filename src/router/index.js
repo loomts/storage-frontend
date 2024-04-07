@@ -10,7 +10,7 @@ const createRouter = () =>
     routes: [
       {
         path: "/",
-        redirect: "/index",
+        redirect: "/storage",
         component: Layout,
         name: "main",
         meta: {

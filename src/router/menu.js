@@ -1,7 +1,7 @@
 export default [
   {
-    path: "/index",
-    name: "index",
+    path: "/storage",
+    name: "storage",
     component: () => import("@/views/Home.vue"),
     meta: {
       title: "海量多模态数据管理系统",
