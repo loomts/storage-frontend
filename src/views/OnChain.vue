@@ -26,7 +26,15 @@ export default {
         {
           type: "form",
           title: "键值上传",
-          api: "post:/api/upload",
+          api: {
+            method: "post",
+            dataType: "form-data",
+            url: "http://10.68.104.103:8090/api/writeKeyValue",
+            data: {
+              key: "${key}",
+              value: "${value}"
+            }
+          },
           submitText: "上传",
           controls: [
             {
@@ -44,7 +52,7 @@ export default {
         {
           type: "form",
           title: "键值查询",
-          api: "get:http://10.68.104.103:8090/api/readKeyValue?key=key6",
+          api: "get:http://10.68.104.103:8090/api/readKeyValue?key=${key}",
           submitText: "查询",
           controls: [
             {
@@ -62,7 +70,16 @@ export default {
         {
           type: "form",
           title: "结构体对象存储",
-          api: "post:/api/store",
+          title: "结构体对象存储",
+          api: {
+            method: "post",
+            dataType: "form-data",
+            url: "http://10.68.104.103:8090/api/writeKeyValue",
+            data: {
+              key: "${key}",
+              value: "${value}"
+            }
+          }, 
           submitText: "上传",
           controls: [
             {
@@ -80,7 +97,7 @@ export default {
         {
           type: "form",
           title: "结构体对象查询",
-          api: "get:/api/retrieve",
+          api: "get:http://10.68.104.103:8090/api/readKeyValue?key=${key}",
           submitText: "查询",
           controls: [
             {

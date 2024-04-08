@@ -24,71 +24,60 @@ export default {
           html: "<div style='text-align:center;'><img src='mixed.png' style='width:40%;' /></div>"
         },
         {
-  type: "form",
-    title: "上传",
-      target: "fileList",
-        api: "post:https://your-backend-endpoint/upload",
-          // debug: true,
-          body: [
-            {
-              type: "input-file",
-              name: "file",
-              // label: "上传文件",
-              accept: "*",
-              // maxSize: 10485760, // 例如最大 10MB
-              // asBlob: true
+          "type": "form",
+          "title": "上传",
+          "api": {
+            "method": "post",
+            "dataType": "form-data",
+            "url": "http://10.68.104.103:8090/api/coStorage",
+            "data": {
+              "file": "${file}"
+            },
+            responseData: {
+              id: "${id}"
             }
-          ],
-            onSaveSuccess: {
-    type: 'toast',
-      level: 'success',
-        message: '文件上传成功'
-  },
-  reload: "fileList" // 指定上传后重新加载的目标组件
-},
-{
-  type: "form",
-    title: "下载",
-      api: "get:https://your-backend-endpoint/download/${id}",
-        controls: [
-          {
-            type: "text",
-            name: "id",
-            label: "文件ID",
-            required: true
           },
-          {
-            type: "button",
-            label: "下载",
-            level: "primary",
-            actionType: "ajax",
-            api: "get:https://your-backend-endpoint/download/${id}",
-            onSuccess: (data, throwl, response) => {
-              if (response.status === 200) {
-                const url = window.URL.createObjectURL(new Blob([response.data]));
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', response.filename || 'downloaded-file'); // 使用后端提供的文件名或默认名字
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }
-            }
-          }
-        ]
-},
-{
-  type: "crud",
-    name: "fileList",
-      label: "文件列表",
-        api: "get:https://your-backend-endpoint/file/list",
-          columns: [
+          "body": [
             {
-              name: "filename",
-              label: "文件名"
+              "type": "input-file",
+              "name": "file",
+              "accept": "*",
+              "maxSize": 1048576000, // 例如最大 1000MB
+              "asBlob": true
             },
             {
-              name: "ID",
+              type: "static",
+              name: "id",
+              label: "文件ID",
+            },
+          ],
+        },
+        {
+          type: "form",
+          title: "下载",
+          controls: [
+            {
+              type: "text",
+              name: "id",
+              label: "文件ID",
+              required: true
+            },
+            {
+              type: "button",
+              label: "下载文件",
+              actionType: "download",
+              api: "get:http://10.68.104.103:8090/api/coDownload?id=${id}",
+            }
+          ]
+        },
+        {
+          type: "crud",
+          name: "fileList",
+          label: "文件列表",
+          api: "get:http://10.68.104.103:8090/api/listObjects",
+          columns: [
+            {
+              name: "id",
               label: "文件ID"
             },
             {
@@ -96,12 +85,25 @@ export default {
               label: "文件大小"
             },
             {
-              name: "lastModified",
+              name: "last_modified",
               label: "最后修改时间"
+            },
+            {
+              name: "etag",
+              label: "ETag"
+            },
+            {
+              name: "storage_class",
+              label: "存储类别"
+            },
+            {
+              name: "metadata",
+              label: "元数据",
+              type: "json" // 如果元数据是一个JSON对象，你可能需要设置列的类型为"json"
             }
           ],
-            autoLoad: true // 页面加载时自动载入数据
-},
+          autoLoad: true // 页面加载时自动载入数据
+        },
       ],
     },
   }),
