@@ -10,7 +10,7 @@ const createRouter = () =>
     routes: [
       {
         path: "/",
-        redirect: "/storage",
+        redirect: "/storage/mixedchain",
         component: Layout,
         name: "main",
         meta: {

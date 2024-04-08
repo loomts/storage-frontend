@@ -13,7 +13,7 @@ export default (/** if you want to use mode : { mode }*/) => {
     base: "./",
     server: {
       host: HOST,
-      port: process.env.PORT,
+      port: 8000,
     },
     resolve: {
       extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"], // .vue added

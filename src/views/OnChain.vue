@@ -40,11 +40,13 @@ export default {
             {
               type: "text",
               name: "key",
+              value: "12D3KooWCVkzhyPw5CvhtGKKSaSNp1D5p49PcH3rWkob1bRgi3CW",
               label: "文件ID",
             },
             {
               type: "textarea",
               name: "value",
+              value: "CAESQGgRUvnM9u6XexkdnahAByFtI30v5nIHlT1pXP3Wh+GMJ87V/olm7YoEMAM+cWNWRbwrlfuMS9gCLNKwuXeQ2Ds=",
               label: "文件特征",
             },
           ],
@@ -85,11 +87,13 @@ export default {
             {
               type: "text",
               name: "key",
+              value: "12D3KooWCVkzhyPw5CvhtGKKSaSNp1D5p49PcH3rWkob1bRgi3CW",
               label: "文件ID",
             },
             {
               type: "textarea",
               name: "value",
+              value: "{'name': 'gdb-13.1.tar.xz', 'size': '23665472', 'date': '2023-02-19', 'etag': '115ad5c18d69a6be2ab15882d365dda2a2211c14f480b3502c6eba576e2e95a0'}",
               label: "序列化特征",
             },
           ],
@@ -109,21 +113,6 @@ export default {
               type: "static",
               name: "value",
               label: "序列化特征",
-            },
-          ],
-        },
-        {
-          type: "crud",
-          name: "keyValueList",
-          api: "get:/api/list",
-          columns: [
-            {
-              name: "key",
-              label: "文件ID",
-            },
-            {
-              name: "value",
-              label: "文件特征",
             },
           ],
         },

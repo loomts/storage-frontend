@@ -21,7 +21,7 @@ export default {
         },
         {
           type: "html",
-          html: "<div style='text-align:center;'><img src='mixed.png' style='width:40%;' /></div>"
+          html: "<div style='text-align:center;'><img src='mixed.png' style='width:20%;' /></div>"
         },
         {
           "type": "form",
