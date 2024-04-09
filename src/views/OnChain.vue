@@ -40,13 +40,11 @@ export default {
             {
               type: "text",
               name: "key",
-              value: "12D3KooWCVkzhyPw5CvhtGKKSaSNp1D5p49PcH3rWkob1bRgi3CW",
               label: "文件ID",
             },
             {
               type: "textarea",
               name: "value",
-              value: "CAESQGgRUvnM9u6XexkdnahAByFtI30v5nIHlT1pXP3Wh+GMJ87V/olm7YoEMAM+cWNWRbwrlfuMS9gCLNKwuXeQ2Ds=",
               label: "文件特征",
             },
           ],
@@ -69,53 +67,52 @@ export default {
             },
           ],
         },
-        {
-          type: "form",
-          title: "结构体对象存储",
-          title: "结构体对象存储",
-          api: {
-            method: "post",
-            dataType: "form-data",
-            url: "http://10.68.104.103:8090/api/writeKeyValue",
-            data: {
-              key: "${key}",
-              value: "${value}"
-            }
-          }, 
-          submitText: "上传",
-          controls: [
-            {
-              type: "text",
-              name: "key",
-              value: "12D3KooWCVkzhyPw5CvhtGKKSaSNp1D5p49PcH3rWkob1bRgi3CW",
-              label: "文件ID",
-            },
-            {
-              type: "textarea",
-              name: "value",
-              value: "{'name': 'gdb-13.1.tar.xz', 'size': '23665472', 'date': '2023-02-19', 'etag': '115ad5c18d69a6be2ab15882d365dda2a2211c14f480b3502c6eba576e2e95a0'}",
-              label: "序列化特征",
-            },
-          ],
-        },
-        {
-          type: "form",
-          title: "结构体对象查询",
-          api: "get:http://10.68.104.103:8090/api/readKeyValue?key=${key}",
-          submitText: "查询",
-          controls: [
-            {
-              type: "text",
-              name: "key",
-              label: "文件ID",
-            },
-            {
-              type: "static",
-              name: "value",
-              label: "序列化特征",
-            },
-          ],
-        },
+       // {
+       //   type: "form",
+       //   title: "结构体对象存储",
+       //   title: "结构体对象存储",
+       //   api: {
+       //     method: "post",
+       //     dataType: "form-data",
+       //     url: "http://10.68.104.103:8090/api/writeKeyValue",
+       //     data: {
+       //       key: "${key}",
+       //       value: "${value}"
+       //     }
+       //   }, 
+       //   submitText: "上传",
+       //   controls: [
+       //     {
+       //       type: "text",
+       //       name: "key",
+       //       label: "文件ID",
+       //     },
+       //     {
+       //       type: "textarea",
+       //       name: "value",
+       //       value: "{'name': 'gdb-13.1.tar.xz', 'size': '23665472', 'date': '2023-02-19', 'etag': '115ad5c18d69a6be2ab15882d365dda2a2211c14f480b3502c6eba576e2e95a0'}",
+       //       label: "序列化特征",
+       //     },
+       //   ],
+       // },
+       // {
+       //   type: "form",
+       //   title: "结构体对象查询",
+       //   api: "get:http://10.68.104.103:8090/api/readKeyValue?key=${key}",
+       //   submitText: "查询",
+       //   controls: [
+       //     {
+       //       type: "text",
+       //       name: "key",
+       //       label: "文件ID",
+       //     },
+       //     {
+       //       type: "static",
+       //       name: "value",
+       //       label: "序列化特征",
+       //     },
+       //   ],
+       // },
       ],
     },
   }),

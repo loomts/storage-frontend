@@ -36,7 +36,7 @@ export default {
   methods: {
     // 导航菜单的点选处理
     handleSelect(index) {
-      if (this.$router.history.current.name === index) return;
+      if (this.$router.history.current.name === index || index == "storage") return;
       this.$router.push({ name: index });
     },
   },
