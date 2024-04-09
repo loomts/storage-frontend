@@ -3,8 +3,69 @@
 > vite
 
 
-  VITE v4.5.3  ready in 679 ms
+  VITE v4.5.3  ready in 813 ms
 
   ➜  Local:   http://localhost:8000/
   ➜  Network: http://192.168.157.180:8000/
 [vite-plugin-static-copy] Collected 32 items.
+1:04:11 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+1:04:16 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+1:25:09 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+1:25:21 PM [vite] hmr update /src/views/MixedChain.vue
+1:25:29 PM [vite] hmr update /src/views/MixedChain.vue
+1:25:30 PM [vite] hmr update /src/views/MixedChain.vue
+1:25:51 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+1:25:53 PM [vite] hmr update /src/views/MixedChain.vue
+1:25:55 PM [vite] hmr update /src/views/MixedChain.vue
+1:26:38 PM [vite] hmr update /src/views/MixedChain.vue
+1:26:40 PM [vite] hmr update /src/views/MixedChain.vue
+1:26:42 PM [vite] hmr update /src/views/MixedChain.vue
+1:26:58 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+1:27:01 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+1:27:02 PM [vite] hmr update /src/views/MixedChain.vue
+1:27:05 PM [vite] hmr update /src/views/MixedChain.vue
+1:27:06 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+3:34:08 PM [vite] hmr update /src/views/OffChain.vue
+3:34:10 PM [vite] hmr update /src/views/OffChain.vue
+3:34:16 PM [vite] hmr update /src/views/OffChain.vue
+3:34:21 PM [vite] hmr update /src/views/OnChain.vue
+3:35:00 PM [vite] hmr update /src/views/OffChain.vue
+3:35:01 PM [vite] hmr update /src/views/OffChain.vue
+3:35:04 PM [vite] hmr update /src/views/OffChain.vue
+3:35:11 PM [vite] hmr update /src/views/OffChain.vue
+3:35:19 PM [vite] hmr update /src/views/OnChain.vue
+3:35:25 PM [vite] hmr update /src/views/OnChain.vue
+3:35:27 PM [vite] hmr update /src/views/OnChain.vue
+3:35:50 PM [vite] hmr update /src/views/OnChain.vue
+3:36:37 PM [vite] hmr update /src/views/OffChain.vue
+3:37:36 PM [vite] hmr update /src/views/OffChain.vue
+3:37:43 PM [vite] hmr update /src/views/OffChain.vue
+3:38:08 PM [vite] hmr update /src/views/OffChain.vue
+3:38:13 PM [vite] hmr update /src/views/OffChain.vue
+3:38:32 PM [vite] hmr update /src/views/OffChain.vue
+3:38:36 PM [vite] hmr update /src/views/OffChain.vue
+3:38:43 PM [vite] hmr update /src/views/OffChain.vue
+3:38:44 PM [vite] hmr update /src/views/OffChain.vue
+3:38:48 PM [vite] hmr update /src/views/OffChain.vue
+3:38:52 PM [vite] hmr update /src/views/OffChain.vue
+3:38:58 PM [vite] hmr update /src/views/OffChain.vue
+3:38:59 PM [vite] hmr update /src/views/OffChain.vue
+3:39:02 PM [vite] hmr update /src/views/OffChain.vue
+3:40:08 PM [vite] hmr update /src/views/OnChain.vue
+3:40:09 PM [vite] hmr update /src/views/OnChain.vue
+3:40:15 PM [vite] hmr update /src/views/OffChain.vue
+3:40:16 PM [vite] hmr update /src/views/OffChain.vue
+3:40:20 PM [vite] hmr update /src/views/MixedChain.vue
+3:40:21 PM [vite] hmr update /src/views/MixedChain.vue
+3:40:43 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+3:40:44 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+3:41:02 PM [vite] hmr update /src/views/MixedChain.vue
+3:41:21 PM [vite] hmr update /src/views/MixedChain.vue
+3:41:24 PM [vite] hmr update /src/views/MixedChain.vue
+3:41:27 PM [vite] hmr update /src/views/MixedChain.vue, /src/views/MixedChain.vue?vue&type=style&index=0&scoped=true&lang.css
+3:41:29 PM [vite] hmr update /src/views/MixedChain.vue
+3:41:35 PM [vite] hmr update /src/views/OffChain.vue
+3:41:37 PM [vite] hmr update /src/views/OffChain.vue
+3:41:38 PM [vite] hmr update /src/views/OffChain.vue
+3:41:43 PM [vite] hmr update /src/views/OnChain.vue
+3:41:47 PM [vite] hmr update /src/views/OnChain.vue

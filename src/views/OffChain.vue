@@ -17,11 +17,14 @@ export default {
       body: [
         {
           type: "html",
-          html: "<h2>链上链下协同存储文件：根据多模态文件内容，提取其特征，将文件内容存储到链下（Ceph）。</h2>"
-        },
-        {
-          type: "html",
-          html: "<div style='text-align:center;'><img src='ceph.png' style='width:40%;' /></div>"
+          html: `
+            <h2>链下存储：直接将原始文件存储于链下分布式存储系统（Ceph）。</h2>
+            <div style='width: 100%; text-align:center;'>
+              <img src='offchain-intro.png' style='width:100%;' />
+            </div>
+            <br>
+            <br>
+          `
         },
         {
           "type": "form",

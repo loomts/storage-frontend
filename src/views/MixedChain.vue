@@ -17,11 +17,14 @@ export default {
       body: [
         {
           type: "html",
-          html: "<h2>链上链下协同存储文件：根据多模态文件内容，提取其特征，将文件内容存储到链下（Ceph）的同时将其特征上链（Tendermint）。</h2>"
-        },
-        {
-          type: "html",
-          html: "<div style='text-align:center;'><img src='mixed.png' style='width:20%;' /></div>"
+          html: `
+            <h2>链上链下协同存储：根据多模态数据内容，提取其特征、元数据、校验数据；将原始数据存储于链下分布式存储系统（Ceph），将特征等数据上链（Tendermint）。</h2>
+            <div style='width: 100%; text-align:center;'>
+              <img src='mixed-intro.png' style='width:100%;' />
+            </div>
+            <br>
+            <br>
+          `
         },
         {
           "type": "form",
@@ -38,6 +41,30 @@ export default {
             }
           },
           "body": [
+            {
+              "type": "list-select",
+              "name": "select",
+              "label": "文件类型",
+              "clearable": true,
+              "options": [
+                {
+                  "label": "数值",
+                  "value": "number"
+                },
+                {
+                  "label": "文本",
+                  "value": "text"
+                },
+                {
+                  "label": "序列",
+                  "value": "sequence"
+                },
+                {
+                  "label": "视频",
+                  "value": "vedio"
+                }
+              ]
+            },
             {
               "type": "input-file",
               "name": "file",

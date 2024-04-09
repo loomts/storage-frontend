@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 20px">
-    {{/*  海量多模态数据管理系统  */}}
+    {{/*  多模态数据区块链存储子系统  */}}
     <router-view></router-view>
   </div>
 </template>

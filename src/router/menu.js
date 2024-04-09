@@ -4,7 +4,7 @@ export default [
     name: "storage",
     component: () => import("@/views/Home.vue"),
     meta: {
-      title: "海量多模态数据管理系统",
+      title: "多模态数据区块链存储子系统",
     },
     children: [
       {

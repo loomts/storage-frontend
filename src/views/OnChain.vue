@@ -17,11 +17,14 @@ export default {
       body: [
         {
           type: "html",
-          html: "<h2>链上键值存储：根据多模态文件的特征，将文件ID和特征分别作为键值上链（Tendermint）。</h2>"
-        },
-        {
-          type: "html",
-          html: "<div style='text-align:center;'><img src='tendermint.jpg' style='width:40%;' /></div>"
+          html: `
+            <h2>链上存储：存储子系统提供链上（Tendermint）键值存储接口，支持上层应用按需存储。</h2>
+            <div style='width: 100%; text-align:center;'>
+              <img src='onchain-intro.png' style='width:100%;' />
+            </div>
+            <br>
+            <br>
+          `
         },
         {
           type: "form",
@@ -67,52 +70,42 @@ export default {
             },
           ],
         },
-       // {
-       //   type: "form",
-       //   title: "结构体对象存储",
-       //   title: "结构体对象存储",
-       //   api: {
-       //     method: "post",
-       //     dataType: "form-data",
-       //     url: "http://10.68.104.103:8090/api/writeKeyValue",
-       //     data: {
-       //       key: "${key}",
-       //       value: "${value}"
-       //     }
-       //   }, 
-       //   submitText: "上传",
-       //   controls: [
-       //     {
-       //       type: "text",
-       //       name: "key",
-       //       label: "文件ID",
-       //     },
-       //     {
-       //       type: "textarea",
-       //       name: "value",
-       //       value: "{'name': 'gdb-13.1.tar.xz', 'size': '23665472', 'date': '2023-02-19', 'etag': '115ad5c18d69a6be2ab15882d365dda2a2211c14f480b3502c6eba576e2e95a0'}",
-       //       label: "序列化特征",
-       //     },
-       //   ],
-       // },
-       // {
-       //   type: "form",
-       //   title: "结构体对象查询",
-       //   api: "get:http://10.68.104.103:8090/api/readKeyValue?key=${key}",
-       //   submitText: "查询",
-       //   controls: [
-       //     {
-       //       type: "text",
-       //       name: "key",
-       //       label: "文件ID",
-       //     },
-       //     {
-       //       type: "static",
-       //       name: "value",
-       //       label: "序列化特征",
-       //     },
-       //   ],
-       // },
+        {
+          type: "form",
+          title: "Base64 编码",
+          submitText: "编码",
+          api: "get:http://10.68.104.103:8090/api/base64Encode?key=${key}",
+          controls: [
+            {
+              type: "text",
+              name: "key",
+              label: "输入字符串",
+            },
+            {
+              type: "static",
+              name: "value",
+              label: "Base64 编码结果",
+            },
+          ],
+        },
+        {
+          type: "form",
+          title: "Base64 解码",
+          submitText: "解码",
+          api: "get:http://10.68.104.103:8090/api/base64Decode?key=${key}",
+          controls: [
+            {
+              type: "text",
+              name: "key",
+              label: "Base64 编码字符串",
+            },
+            {
+              type: "static",
+              name: "value",
+              label: "解码结果",
+            },
+          ],
+        }
       ],
     },
   }),
