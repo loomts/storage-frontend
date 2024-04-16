@@ -19,8 +19,8 @@ export default {
           type: "html",
           html: `
             <h2>链上链下协同存储：根据多模态数据内容，提取其特征、元数据、校验数据；将原始数据存储于链下分布式存储系统（Ceph），将特征等数据上链（Tendermint）。</h2>
-            <div style='width: 100%; text-align:center;'>
-              <img src='mixed-intro.png' style='width:100%;' />
+            <div style='width: 100%; overflow-x: auto; text-align:center;'>
+              <img src='mixed-intro.png' style='height:330px; width: auto;' />
             </div>
             <br>
             <br>

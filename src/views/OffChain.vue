@@ -19,8 +19,8 @@ export default {
           type: "html",
           html: `
             <h2>链下存储：直接将原始文件存储于链下分布式存储系统（Ceph）。</h2>
-            <div style='width: 100%; text-align:center;'>
-              <img src='offchain-intro.png' style='width:100%;' />
+            <div style='width: 100%; overflow-x: auto; text-align:center;'>
+              <img src='offchain-intro.png' style='height:300px; width: auto;' />
             </div>
             <br>
             <br>

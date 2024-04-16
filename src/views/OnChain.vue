@@ -19,8 +19,8 @@ export default {
           type: "html",
           html: `
             <h2>链上存储：存储子系统提供链上（Tendermint）键值存储接口，支持上层应用按需存储。</h2>
-            <div style='width: 100%; text-align:center;'>
-              <img src='onchain-intro.png' style='width:100%;' />
+            <div style='width: 100%; overflow-x: auto; text-align:center;'>
+              <img src='onchain-intro.png' style='height:268px; width: auto;' />
             </div>
             <br>
             <br>
