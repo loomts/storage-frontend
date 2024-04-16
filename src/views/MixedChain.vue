@@ -6,7 +6,6 @@
 import AMISRenderer from "@/components/AMISRenderer";
 
 export default {
-  name: "FileOperation",
   components: {
     "amis-renderer": AMISRenderer,
   },
@@ -138,11 +137,4 @@ export default {
 </script>
 
 <style scoped>
-.mid-image {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  margin-bottom: 20px;
-  margin-left: 120px;
-}
 </style>

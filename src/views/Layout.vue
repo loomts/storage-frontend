@@ -32,7 +32,6 @@ import _ from "lodash";
 import { mapGetters } from "vuex";
 
 export default {
-  name: "layout",
   components: {
     Navbar,
     Sidebar,

@@ -31,6 +31,14 @@ export default [
           title: "链上键值存储",
         },
       },
+      {
+        path: "multinodes",
+        name: "multinodes",
+        component: () => import("@/views/MultiNodes.vue"),
+        meta: {
+          title: "多种类节点轻量化存储",
+        },
+      },
     ]
   },
 ];

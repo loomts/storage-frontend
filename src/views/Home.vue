@@ -7,7 +7,6 @@
 <script>
 import HomeApi from "@/api/modules/HomeApi";
 export default {
-  name: "Home",
   components: {},
   computed: {},
   data: () => ({}),

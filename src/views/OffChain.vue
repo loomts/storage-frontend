@@ -6,7 +6,6 @@
 import AMISRenderer from "@/components/AMISRenderer";
 
 export default {
-  name: "FileOperation",
   components: {
     "amis-renderer": AMISRenderer,
   },
