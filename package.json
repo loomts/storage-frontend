@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "serve": "vite",
+    "serve": "vite --port 9000",
     "serve:dev": "vite --mode development",
     "serve:prod": "vite --mode production",
     "build": "vite build",
