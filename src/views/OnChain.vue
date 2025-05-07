@@ -31,7 +31,7 @@ export default {
           api: {
             method: "post",
             dataType: "form-data",
-            url: "http://10.68.104.103:8090/api/writeKeyValue",
+            url: "http://10.69.46.129:9001/api/writeKeyValue",
             data: {
               key: "${key}",
               value: "${value}"
@@ -54,7 +54,7 @@ export default {
         {
           type: "form",
           title: "键值查询",
-          api: "get:http://10.68.104.103:8090/api/readKeyValue?key=${key}",
+          api: "get:http://10.69.46.129:9001/api/readKeyValue?key=${key}",
           submitText: "查询",
           controls: [
             {
@@ -73,7 +73,7 @@ export default {
           type: "form",
           title: "Base64 编码",
           submitText: "编码",
-          api: "get:http://10.68.104.103:8090/api/base64Encode?key=${key}",
+          api: "get:http://10.69.46.129:9001/api/base64Encode?key=${key}",
           controls: [
             {
               type: "text",
@@ -91,7 +91,7 @@ export default {
           type: "form",
           title: "Base64 解码",
           submitText: "解码",
-          api: "get:http://10.68.104.103:8090/api/base64Decode?key=${key}",
+          api: "get:http://10.69.46.129:9001/api/base64Decode?key=${key}",
           controls: [
             {
               type: "text",

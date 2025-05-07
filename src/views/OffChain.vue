@@ -31,7 +31,7 @@ export default {
           "api": {
             "method": "post",
             "dataType": "form-data",
-            "url": "http://10.68.104.103:8090/api/offChainUploadFile",
+            "url": "http://10.69.46.129:9001/api/offChainUploadFile",
             "data": {
               "file": "${file}"
             },
@@ -68,7 +68,7 @@ export default {
               type: "button",
               label: "下载文件",
               actionType: "download",
-              api: "get:http://10.68.104.103:8090/api/offChainDownloadFile?id=${id}",
+              api: "get:http://10.69.46.129:9001/api/offChainDownloadFile?id=${id}",
             }
           ]
         },
@@ -76,7 +76,7 @@ export default {
           type: "crud",
           name: "fileList",
           label: "文件列表",
-          api: "get:http://10.68.104.103:8090/api/listObjects",
+          api: "get:http://10.69.46.129:9001/api/listObjects",
           columns: [
             {
               name: "id",

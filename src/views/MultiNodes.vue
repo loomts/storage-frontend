@@ -47,7 +47,7 @@ export default {
               name: "ecInfo",
               id: "ecInfo", // 设置名称，用于后面的reload
               className: "col-md-6",
-              api: "http://10.68.104.103:8090/api/ecInfo",
+              api: "http://10.69.46.129:9001/api/ecInfo",
               interval: 3000,
               initFetch: false,
               body: [
@@ -102,7 +102,7 @@ export default {
               name: "partitionInfo", // 设置名称，用于后面的reload
               id: "partitionInfo", // 设置名称，用于后面的reload
               className: "col-md-6",
-              api: "http://10.68.104.103:8090/api/partitionInfo", // 设置API地址
+              api: "http://10.69.46.129:9001/api/partitionInfo", // 设置API地址
               interval: 3000, // 设置刷新间隔为3秒
               initFetch: false, // 初始不启动
               body: [

@@ -1,0 +1,11 @@
+
+> vue2-amis-demo@1.0.0 serve
+> vite --port 9000
+
+
+  VITE v4.5.3  ready in 314 ms
+
+  ➜  Local:   http://localhost:9000/
+  ➜  Network: http://192.168.1.106:9000/
+  ➜  Network: http://172.18.0.1:9000/
+[vite-plugin-static-copy] Collected 32 items.
