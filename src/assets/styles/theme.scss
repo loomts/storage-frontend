@@ -1,0 +1,120 @@
+/* 明亮主题变量 */
+:root {
+  --primary-color: #409EFF;
+  --success-color: #67C23A;
+  --warning-color: #E6A23C;
+  --danger-color: #F56C6C;
+  
+  --text-color-primary: #303133;
+  --text-color-regular: #606266;
+  
+  --border-color-base: #DCDFE6;
+  --border-color-light: #E4E7ED;
+  
+  --background-color-base: #F5F7FA;
+  --background-color-card: #FFFFFF;
+}
+
+/* 暗色主题变量 */
+.dark-theme {
+  --primary-color: #409EFF;
+  --success-color: #67C23A;
+  --warning-color: #E6A23C;
+  --danger-color: #F56C6C;
+  
+  --text-color-primary: #E1E1E1;
+  --text-color-regular: #CDCDCD;
+  
+  --border-color-base: #434343;
+  --border-color-light: #363636;
+  
+  --background-color-base: #141414;
+  --background-color-card: #1F1F1F;
+}
+
+/* 全局样式 */
+body {
+  color: var(--text-color-primary);
+  background-color: var(--background-color-base);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 主题适配元素样式 */
+.el-card {
+  background-color: var(--background-color-card);
+  border-color: var(--border-color-light);
+}
+
+/* 暗色主题样式 */
+.dark-theme {
+  .el-menu {
+    background-color: var(--background-color-card);
+    border-right-color: var(--border-color-base);
+  }
+
+  .el-menu-item,
+  .el-submenu__title {
+    color: var(--text-color-regular);
+
+    &:hover,
+    &.is-active {
+      color: var(--primary-color);
+    }
+  }
+
+  .el-card {
+    color: var(--text-color-primary);
+    background-color: var(--background-color-card);
+    border-color: var(--border-color-base);
+  }
+
+  .el-input__inner,
+  .el-textarea__inner {
+    background-color: var(--background-color-base);
+    border-color: var(--border-color-base);
+    color: var(--text-color-primary);
+  }
+
+  .el-table {
+    background-color: var(--background-color-card);
+    color: var(--text-color-primary);
+
+    th, tr {
+      background-color: var(--background-color-card);
+    }
+  }
+}
+
+/* 通用辅助类 */
+.m {
+  &-10 { margin: 10px; }
+  &-20 { margin: 20px; }
+  &b-10 { margin-bottom: 10px; }
+  &b-20 { margin-bottom: 20px; }
+  &t-10 { margin-top: 10px; }
+  &t-20 { margin-top: 20px; }
+  &l-10 { margin-left: 10px; }
+  &r-10 { margin-right: 10px; }
+}
+
+.p {
+  &-10 { padding: 10px; }
+  &-20 { padding: 20px; }
+}
+
+.text-center { text-align: center; }
+
+.flex {
+  &-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
