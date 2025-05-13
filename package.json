@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "serve": "vite --port 9000",
     "serve:dev": "vite --mode development",

@@ -1,27 +1,37 @@
 import axios from 'axios';
-
-/**
- * AXIOS INTERCEPTOR
- * INTERCEPTORS.REQEUST.USE => BEFORE REQUEST
- * INTERCEPTORS.RESPONSE.USE => AFTER RESPONE
- */
+import { getBaseURL, getTimeout } from '@/config';
+import { handleError } from '@/utils/errorHandler';
 
 const service = axios.create({
-    baseURL: 'http://www.sample.com',
+    baseURL: getBaseURL(),
     withCredentials: true,
-    timeout: 30000
-})
+    timeout: getTimeout()
+});
 
-service.interceptors.request.use((config) => {
+// 请求拦截器
+service.interceptors.request.use(
+    config => {
+        // 在发送请求前做些处理
+        return config;
+    }, 
+    error => {
+        // 处理请求错误
+        handleError(error);
+        return Promise.reject(error);
+    }
+);
 
-}, (error) => {
-
-})
-
-service.interceptors.response.use((response) => {
-
-}, (error) => {
-
-})
+// 响应拦截器
+service.interceptors.response.use(
+    response => {
+        // 对响应数据做处理
+        return response.data;
+    },
+    error => {
+        // 处理响应错误
+        handleError(error);
+        return Promise.reject(error);
+    }
+)
 
 export default service;

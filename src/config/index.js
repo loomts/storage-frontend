@@ -9,7 +9,7 @@ const ENV = {
     timeout: 30000
   },
   production: {
-    apiBaseUrl: '/api', // 生产环境通常使用相对路径
+    apiBaseUrl: '/api',
     timeout: 60000
   }
 };
