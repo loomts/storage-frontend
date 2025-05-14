@@ -3,29 +3,10 @@
 > vite --port 9000
 
 
-  VITE v4.5.3  ready in 277 ms
+  VITE v4.5.3  ready in 268 ms
 
   ➜  Local:   http://localhost:9000/
   ➜  Network: http://192.168.1.106:9000/
   ➜  Network: http://172.18.0.1:9000/
-6:15:36 PM [vite] hmr update /src/components/AMISRenderer.vue, /src/views/Home.vue
-6:15:40 PM [vite] hmr update /src/components/AMISRenderer.vue, /src/views/Home.vue
-6:15:42 PM [vite] hmr update /src/components/AMISRenderer.vue, /src/views/Home.vue
-6:17:51 PM [vite] vite.config.js changed, restarting server...
-6:17:51 PM [vite] server restarted.
-(node:972704) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(node:3434926) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-6:34:52 PM [vite] hmr update /src/components/AMISRenderer.vue, /src/views/Home.vue
-1:24:12 AM [vite] hmr update /src/components/AMISRenderer.vue, /src/views/Home.vue
-1:24:17 AM [vite] vite.config.js changed, restarting server...
-1:24:17 AM [vite] server restarted.
-1:32:37 AM [vite] hmr update /src/views/Home.vue, /src/components/AMISRenderer.vue
-  Network: http://172.18.0.1:9002/
-1:24:17 AM [vite] vite.config.js changed, restarting server...
-Port 9000 is in use, trying another one...
-Port 9001 is in use, trying another one...
-1:24:17 AM [vite] server restarted.
-
-  ➜  Local:   http://localhost:9002/
-  ➜  Network: http://192.168.1.106:9002/
-  ➜  Network: http://172.18.0.1:9002/

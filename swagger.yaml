@@ -1,0 +1,608 @@
+basePath: /api
+host: 10.69.46.129:9001
+info:
+  contact:
+    email: support@costorage.io
+    name: API 支持
+    url: http://www.costorage.io/support
+  description: 链上链下协同存储 API 文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: CoStorage API
+  version: "1.0"
+paths:
+  /base64decode:
+    get:
+      description: 将Base64编码的字符串解码为原始字符串
+      parameters:
+      - description: 需要解码的Base64字符串
+        in: query
+        name: key
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 解码结果，包含输入和解码后的值
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 请求参数错误或解码失败
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Base64解码
+      tags:
+      - 工具函数
+  /base64encode:
+    get:
+      description: 将输入字符串进行Base64编码
+      parameters:
+      - description: 需要编码的原始字符串
+        in: query
+        name: key
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 编码结果，包含输入和编码后的值
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Base64编码
+      tags:
+      - 工具函数
+  /cephdownload:
+    get:
+      description: 根据文件ID从链下对象存储系统（Ceph）下载文件
+      parameters:
+      - description: 文件ID，上传时返回的唯一标识
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: 文件内容
+          schema:
+            type: file
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: 文件不存在
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 从链下存储下载文件
+      tags:
+      - 链下存储
+  /cephlist:
+    get:
+      description: 获取链下存储系统中所有可用对象的列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 对象列表及其元数据
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 列出链下存储中的所有对象
+      tags:
+      - 链下存储
+  /cephupload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 将文件上传到链下对象存储系统（Ceph）
+      parameters:
+      - description: 待上传的文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 上传成功响应，包含文件ID、大小和名称
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 上传文件到链下存储
+      tags:
+      - 链下存储
+  /codownload:
+    get:
+      description: 根据文件ID从协同存储系统中下载文件，会自动验证文件完整性
+      parameters:
+      - description: 文件ID，上传时返回的唯一标识
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: 是否只获取元数据，默认为false
+        in: query
+        name: metadata_only
+        type: boolean
+      - description: 是否自动检测存储类型，默认为true
+        in: query
+        name: auto_detect
+        type: boolean
+      - description: 链上存储类型，目前支持'tendermint'，默认为'tendermint'
+        in: query
+        name: on_chain_type
+        type: string
+      - description: 链下存储类型，支持'ceph'和'ipfs'，默认为'ceph'
+        in: query
+        name: off_chain_type
+        type: string
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: 文件验证结果
+          schema:
+            type: boolean
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: 文件不存在
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 从协同存储下载文件
+      tags:
+      - 混合存储
+  /colist:
+    get:
+      description: 列出指定的链上存储和链下存储系统中同时存在的文件
+      parameters:
+      - description: 存储桶名称，默认为costorage01
+        in: query
+        name: bucket_name
+        type: string
+      - description: 链上存储类型，目前支持'tendermint'，默认为'tendermint'
+        in: query
+        name: on_chain_type
+        type: string
+      - description: 链下存储类型，支持'ceph'和'ipfs'，默认为'ceph'
+        in: query
+        name: off_chain_type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: IPFS内容标识符(仅当off_chain_type为'ipfs'时)
+          schema:
+            type: string
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 列出同时存储在链上和链下的文件
+      tags:
+      - 混合存储
+  /costorage:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 将文件上传到协同存储系统，文件内容保存在链下，特征与验证数据保存在链上
+      parameters:
+      - description: 待上传的文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: 文件类型，如number、text、sequence等
+        in: formData
+        name: filetype
+        required: true
+        type: string
+      - description: 特征提取方法，支持'sha256'、'md5'、'simhash'等
+        in: formData
+        name: exMethod
+        required: true
+        type: string
+      - description: 链上存储类型，目前支持'tendermint'，默认为'tendermint'
+        in: formData
+        name: onChainType
+        type: string
+      - description: 链下存储类型，支持'ceph'和'ipfs'，默认为'ceph'
+        in: formData
+        name: offChainType
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 存储类型组合
+          schema:
+            type: string
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 上传文件到链上链下协同存储
+      tags:
+      - 混合存储
+  /ecinfo:
+    get:
+      description: 获取分布式存储系统中的纠删码(Erasure Coding)编码信息
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 节点块数和总块数信息
+          schema:
+            additionalProperties:
+              items:
+                type: integer
+              type: array
+            type: object
+      summary: 获取EC编码信息
+      tags:
+      - 系统信息
+  /getkv:
+    get:
+      description: 从区块链中读取指定键的值
+      parameters:
+      - description: 要查询的键名
+        in: query
+        name: key
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 键值对数据
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 读取键值对
+      tags:
+      - 键值存储
+  /ipfsdelete:
+    delete:
+      description: 根据CID从IPFS分布式文件系统中删除文件
+      parameters:
+      - description: 文件在IPFS中的CID标识符
+        in: query
+        name: cid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 删除成功响应
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "503":
+          description: IPFS服务不可用
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 从IPFS删除文件
+      tags:
+      - IPFS存储
+  /ipfsdownload:
+    get:
+      description: 根据CID从IPFS分布式文件系统下载文件
+      parameters:
+      - description: 文件在IPFS中的CID标识符
+        in: query
+        name: cid
+        required: true
+        type: string
+      - description: 指定下载的文件名
+        in: query
+        name: filename
+        type: string
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: 文件内容
+          schema:
+            type: file
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: 文件不存在
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "503":
+          description: IPFS服务不可用
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 从IPFS下载文件
+      tags:
+      - IPFS存储
+  /ipfshealth:
+    get:
+      description: 检查IPFS分布式文件系统的连接和健康状态
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: IPFS健康状态信息
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "503":
+          description: IPFS服务不可用
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 检查IPFS健康状态
+      tags:
+      - IPFS存储
+  /ipfslist:
+    get:
+      description: 根据CID列出IPFS分布式文件系统中的对象
+      parameters:
+      - description: 要列出对象的CID
+        in: query
+        name: cid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: IPFS对象列表
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "503":
+          description: IPFS服务不可用
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 列出IPFS中的对象
+      tags:
+      - IPFS存储
+  /ipfsupload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 将文件上传到IPFS分布式文件系统
+      parameters:
+      - description: 待上传的文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回文件的IPFS CID哈希值
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "503":
+          description: IPFS服务不可用
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 上传文件到IPFS
+      tags:
+      - IPFS存储
+  /partitioninfo:
+    get:
+      description: 获取分布式存储系统中的数据分片信息
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 节点分片数量和总分片数量信息
+          schema:
+            additionalProperties:
+              items:
+                type: integer
+              type: array
+            type: object
+      summary: 获取分片信息
+      tags:
+      - 系统信息
+  /putkv:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 将键值对数据写入到区块链中
+      parameters:
+      - description: 键名
+        in: formData
+        name: key
+        required: true
+        type: string
+      - description: 键值
+        in: formData
+        name: value
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 写入成功响应
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 请求参数错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: 服务器内部错误
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 写入键值对
+      tags:
+      - 键值存储
+schemes:
+- http
+swagger: "2.0"

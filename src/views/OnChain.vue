@@ -31,7 +31,7 @@ export default {
           api: {
             method: "post",
             dataType: "form-data",
-            url: "/api/writeKeyValue",
+            url: "/api/putkv",
             data: {
               key: "${key}",
               value: "${value}"
@@ -54,7 +54,7 @@ export default {
         {
           type: "form",
           title: "键值查询",
-          api: "get:/api/readKeyValue?key=${key}",
+          api: "get:/api/getkv?key=${key}",
           submitText: "查询",
           controls: [
             {
@@ -73,7 +73,7 @@ export default {
           type: "form",
           title: "Base64 编码",
           submitText: "编码",
-          api: "get:/api/base64Encode?key=${key}",
+          api: "get:/api/base64encode?string=${key}",
           controls: [
             {
               type: "text",
@@ -91,7 +91,7 @@ export default {
           type: "form",
           title: "Base64 解码",
           submitText: "解码",
-          api: "get:/api/base64Decode?key=${key}",
+          api: "get:/api/base64decode?string=${key}",
           controls: [
             {
               type: "text",

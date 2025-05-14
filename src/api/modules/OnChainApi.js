@@ -11,7 +11,7 @@ export default {
    */
   writeKeyValue(data) {
     return request({
-      url: '/writeKeyValue',
+      url: '/putkv',
       method: 'post',
       data
     });
@@ -24,7 +24,7 @@ export default {
    */
   readKeyValue(key) {
     return request({
-      url: '/readKeyValue',
+      url: '/getkv',
       method: 'get',
       params: { key }
     });
@@ -37,9 +37,9 @@ export default {
    */
   base64Encode(key) {
     return request({
-      url: '/base64Encode',
+      url: '/base64encode',
       method: 'get',
-      params: { key }
+      params: { string: key }
     });
   },
 
@@ -50,9 +50,9 @@ export default {
    */
   base64Decode(key) {
     return request({
-      url: '/base64Decode',
+      url: '/base64decode',
       method: 'get',
-      params: { key }
+      params: { string: key }
     });
   }
 };
