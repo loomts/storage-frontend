@@ -5,13 +5,9 @@
 // 环境配置
 const ENV = {
   development: {
-    apiBaseUrl: 'http://10.69.46.129:9001/api',
+    apiBaseUrl: '/api',  // 使用相对路径，确保请求通过代理
     timeout: 30000
   },
-  production: {
-    apiBaseUrl: '/api',
-    timeout: 60000
-  }
 };
 
 // 获取当前环境
@@ -44,5 +40,4 @@ export function getEnvConfig() {
 export default {
   ...ENV[currentEnv],
   isDev: currentEnv === 'development',
-  isProd: currentEnv === 'production'
 };

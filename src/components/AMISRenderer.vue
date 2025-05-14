@@ -8,6 +8,7 @@
 <script>
 import "amis/sdk/helper.css";
 import qs from "qs";
+import { getBaseURL } from "@/config";
 
 function loadScript(src, callback) {
   const script = document.createElement("script");
@@ -136,6 +137,9 @@ export default {
         ...this.props,
       },
       {
+        // 设置API请求的基础URL
+        apiUrl: getBaseURL(),
+        
         // 覆盖 amis env
         // 参考 https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/getting-started#sdk
         jumpTo: (to, action) => {

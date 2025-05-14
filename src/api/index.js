@@ -4,7 +4,7 @@ import { handleError } from '@/utils/errorHandler';
 
 const service = axios.create({
     baseURL: getBaseURL(),
-    withCredentials: true,
+    withCredentials: false, // 修改为false，因为我们使用的是跨域API
     timeout: getTimeout()
 });
 

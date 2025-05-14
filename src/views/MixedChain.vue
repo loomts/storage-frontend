@@ -31,9 +31,10 @@ export default {
           "api": {
             "method": "post",
             "dataType": "form-data",
-            "url": "http://10.69.46.129:9001/api/coStorage",
+            "url": "/api/coStorage",
             "data": {
-              "file": "${file}"
+              "file": "${file}",
+              "fileType": "${select}"
             },
             responseData: {
               id: "${id}"
@@ -92,7 +93,7 @@ export default {
               type: "button",
               label: "下载文件",
               actionType: "download",
-              api: "get:http://10.69.46.129:9001/api/coDownload?id=${id}",
+              api: "get:/api/coDownload?id=${id}",
             }
           ]
         },
@@ -100,7 +101,7 @@ export default {
           type: "crud",
           name: "fileList",
           label: "文件列表",
-          api: "get:http://10.69.46.129:9001/api/listObjects",
+          api: "get:/api/listObjects",
           columns: [
             {
               name: "id",

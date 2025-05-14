@@ -12,7 +12,14 @@ export default ({ mode }) => {
     base: "./",
     server: {
       host: HOST,
-      port: 8000,
+      port: 9001,
+      proxy: {
+        '/api': {
+          target: 'http://10.69.46.129:9001',
+          changeOrigin: true,
+          secure: false
+        }
+      }
     },
     resolve: {
       extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"], // .vue added

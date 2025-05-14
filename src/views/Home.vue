@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 20px">
-    {{/*  多模态数据区块链存储子系统  */}}
+    {{/* 多模态数据区块链存储子系统 */ }}
     <router-view></router-view>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   beforeDestroy() { },
   destroyed() { },
   methods: {
-    getDatList(){
+    getDatList() {
       HomeApi.getDatList()
     }
   },
